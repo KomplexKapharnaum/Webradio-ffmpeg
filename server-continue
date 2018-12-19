@@ -17,9 +17,9 @@ class Flux:
 
     def __init__(self, num):
         self.ff = ffmpy.FFmpeg(
-            global_options= '-loglevel warning -fflags +genpts -stream_loop -1',
-            inputs={'file.wav': None},
-            outputs={'icecast://source:KXKMcast@radio.kxkm.net:5000/flux': '-c:a libmp3lame -b:a 92k -content_type audio/mpeg -f mp3'}
+            global_options= '-loglevel info -fflags +genpts -stream_loop -1',
+            inputs={'test.mp3': None},
+            outputs={'icecast://source:KXKMcastpass@127.0.0.1:5000/flux': '-c:a libmp3lame -b:a 32k -content_type audio/mpeg -f mp3'}
         )
         self.process = Thread(target=self.execute)
         self.run = True
